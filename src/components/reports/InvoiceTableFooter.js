@@ -1,11 +1,11 @@
 import React from 'react';
 import {Text, View, StyleSheet } from '@react-pdf/renderer';
 
-const borderColor = '#90e5fc'
+const borderColor = 'black'
 const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
-        borderBottomColor: '#bff0fd',
+        borderBottomColor: borderColor,
         borderBottomWidth: 1,
         alignItems: 'center',
         height: 24,
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         fontStyle: 'bold',
     },
     description: {
-        width: '85%',
+        width: '92%',
         textAlign: 'right',
         borderRightColor: borderColor,
         borderRightWidth: 1,
@@ -23,17 +23,29 @@ const styles = StyleSheet.create({
         width: '15%',
         textAlign: 'right',
         paddingRight: 8,
+        
     },
+    
   });
 
 
 const InvoiceTableFooter = ({items}) => {
     const total = items.map(item => item.qty * item.rate)
         .reduce((accumulator, currentValue) => accumulator + currentValue , 0)
-    return(    
+    return(
+        <View>    
+        <View style={styles.row}>
+            <Text style={styles.description}>Subtotal</Text>
+            <Text style={styles.total}>{ Number.parseFloat(total).toFixed(2)}</Text>
+        </View>
+        <View style={styles.row}>
+            <Text style={styles.description}>Sales Tax</Text>
+            <Text style={styles.total}>{ Number.parseFloat(total).toFixed(2)}</Text>
+        </View>
         <View style={styles.row}>
             <Text style={styles.description}>TOTAL</Text>
             <Text style={styles.total}>{ Number.parseFloat(total).toFixed(2)}</Text>
+        </View>
         </View>
     )
 };

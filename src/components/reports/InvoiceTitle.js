@@ -6,12 +6,15 @@ const styles = StyleSheet.create({
     titleContainer:{
         flexDirection: 'row',
         marginTop: 24,
+        justifyContent: 'flex-end'
+       
     },
     reportTitle:{
-        color: '#61dafb',
+        color: 'black',
         letterSpacing: 4,
         fontSize: 25,
         textAlign: 'center',
+        display: "flex",
         textTransform: 'uppercase',
     }
   });

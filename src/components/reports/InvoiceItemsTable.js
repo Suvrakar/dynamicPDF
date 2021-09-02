@@ -5,7 +5,7 @@ import InvoiceTableRow from './InvoiceTableRow'
 import InvoiceTableBlankSpace from './InvoiceTableBlankSpace'
 import InvoiceTableFooter from './InvoiceTableFooter'
 
-const tableRowsCount = 11;
+const tableRowsCount = 5;
 
 const styles = StyleSheet.create({
     tableContainer: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         marginTop: 24,
         borderWidth: 1,
-        borderColor: '#bff0fd',
+        borderColor: 'black',
     },
 });
 
