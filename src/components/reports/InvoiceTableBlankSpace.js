@@ -41,6 +41,10 @@ const InvoiceTableBlankSpace = ({ rowsCount }) => {
   const blankRows = Array(rowsCount).fill(0);
   const rows = blankRows.map((x, i) => (
     <View style={styles.row} key={`BR${i}`}>
+      {/* {rowsCount==12? { }   :    {
+
+      }} */}
+     { console.log(rowsCount)}
       <Text style={styles.Sl}>SL</Text>
       <Text style={styles.description}>-</Text>
       <Text style={styles.qty}>-</Text>

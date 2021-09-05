@@ -4,8 +4,9 @@ import InvoiceTableHeader from './InvoiceTableHeader'
 import InvoiceTableRow from './InvoiceTableRow'
 import InvoiceTableBlankSpace from './InvoiceTableBlankSpace'
 import InvoiceTableFooter from './InvoiceTableFooter'
+import invoiceData from '../../data/invoice-data';
 
-const tableRowsCount = 5;
+const tableRowsCount = invoiceData.items.length+1;
 
 const styles = StyleSheet.create({
     tableContainer: {
