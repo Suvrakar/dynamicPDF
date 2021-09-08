@@ -45,23 +45,23 @@ const styles = StyleSheet.create({
 
 const InvoiceTableRow = ({ items }) => {
   const rows = items.map((item, idx) => {
-    console.log(idx);
-    if (idx === 14) {
-      return (
-        <View style={{ marginTop: "150px" }}>
-          <InvoiceTableHeader />
-          <View style={styles.row} key={item.sno.toString()}>
-            <Text style={styles.qty}>{item.sno}</Text>
-            <Text style={styles.description}>{item.desc}</Text>
-            <Text style={styles.qty}>{item.qty}</Text>
-            <Text style={styles.rate}>{item.rate}</Text>
-            <Text style={styles.amount}>
-              {(item.qty * item.rate).toFixed(2)}
-            </Text>
-          </View>
-        </View>
-      );
-    }
+    // console.log(idx);
+    // if (idx === 14) {
+    //   return (
+    //     <View style={{ marginTop: "150px" }}>
+    //       <InvoiceTableHeader />
+    //       <View style={styles.row} key={item.sno.toString()}>
+    //         <Text style={styles.qty}>{item.sno?1:item.sno}</Text>
+    //         <Text style={styles.description}>{item.desc}</Text>
+    //         <Text style={styles.qty}>{item.qty}</Text>
+    //         <Text style={styles.rate}>{item.rate}</Text>
+    //         <Text style={styles.amount}>
+    //           {(item.qty * item.rate).toFixed(2)}
+    //         </Text>
+    //       </View>
+    //     </View>
+    //   );
+    // }
     return (
       <View style={styles.row} key={item.sno.toString()}>
         <Text style={styles.qty}>{item.sno}</Text>

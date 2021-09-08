@@ -44,7 +44,7 @@ const InvoiceTableBlankSpace = ({ rowsCount }) => {
       {/* {rowsCount==12? { }   :    {
 
       }} */}
-     { console.log(rowsCount)}
+    
       <Text style={styles.Sl}>SL</Text>
       <Text style={styles.description}>-</Text>
       <Text style={styles.qty}>-</Text>
