@@ -55,7 +55,7 @@ const Invoice = ({ invoice }) => {
   return (
     <Document>
       {tables.map((x, idx) => {
-        if (idx == 0 && idx == tables.length-1) {
+        if (idx === 0 && idx === tables.length-1) {
           console.log(1);
           return (
             <Page size="A4" style={styles.page}>
@@ -71,7 +71,7 @@ const Invoice = ({ invoice }) => {
             </Page>
           );
         }
-        if (idx == 0 && tables.length>1) {
+        if (idx === 0 && tables.length>1) {
           console.log(2);
 
           return (
@@ -99,7 +99,7 @@ const Invoice = ({ invoice }) => {
             </Page>
           );
         }
-        if (idx&& idx == tables.length-1) {
+        if (idx&& idx === tables.length-1) {
           console.log(4);
 
           return ( 

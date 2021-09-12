@@ -1,15 +1,14 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as ReactBootstrap from "react-bootstrap";
 import "./From.css";
-import {DataContext} from './context/dataContext'
-
+import { DataContext } from "./context/dataContext";
 
 export default function Froms() {
-  const [data,setData,flag, setFlag]= useContext(DataContext)
+  const [data, setData, flag, setFlag] = useContext(DataContext);
 
   const [inputList, setInputList] = useState([
-    { sno:1, desc: "", qty: 1, rate: 0 },
+    { sno: 1, desc: "", qty: 1, rate: 0 },
   ]);
 
   const {
@@ -30,12 +29,11 @@ export default function Froms() {
       address: data.address,
       trans_date: data.date,
       due_date: "2019-10-12",
-      items:inputList
+      items: inputList,
     };
     console.log(ojb1);
-    // setData(ojb1)
-    setFlag(false)
-
+    setData(ojb1)
+    setFlag(false);
   }; // your form submit function which will invoke after successful validation
 
   // you can watch individual input by pass the name of the input
@@ -56,59 +54,141 @@ export default function Froms() {
   };
 
   const handleAddClick = () => {
-    setInputList([
-      ...inputList,
-      { sno:inputList, desc:"", qty: 1, rate: 0 },
-    ]);
+    setInputList([...inputList, { sno: inputList, desc: "", qty: 1, rate: 0 }]);
   };
 
   return (
     <div>
-      <h1>Hivecore Invoice</h1>
+      <h1>Invoice</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <label className="text-center">Id</label>
+              <input
+                className="w-50 mx-auto"
+                {...register("invoiceNo", {
+                  required: true,
+                  maxLength: 20,
+                  // pattern: /^[A-Za-z]+$/i,
+                })}
+              />
+            </div>
+            <div class="col-sm">
+              <label className="text-center">Invoice No</label>
+              <input
+                className="w-75 mx-auto"
+                {...register("invoiceNo", {
+                  required: true,
+                  maxLength: 20,
+                  // pattern: /^[A-Za-z]+$/i,
+                })}
+              />
+            </div>
+            <div class="col-sm">
+              <label className="text-center">Balance</label>
+              <input
+                className="w-50 mx-auto"
+                {...register("invoiceNo", {
+                  required: true,
+                  maxLength: 20,
+                  // pattern: /^[A-Za-z]+$/i,
+                })}
+              />
+            </div>
+            <div class="col-sm">
+              <label className="text-center">Company</label>
+              <input
+                className="w-75 mx-auto"
+                {...register("invoiceNo", {
+                  required: true,
+                  maxLength: 20,
+                  // pattern: /^[A-Za-z]+$/i,
+                })}
+              />
+            </div>
+          </div>
+        </div>
 
-        <label className="text-center">Invoice No</label>
-        <input className="w-25 mx-auto"
-          {...register("invoiceNo", {
-            required: true,
-            maxLength: 20,
-            pattern: /^[A-Za-z]+$/i,
-          })}
-        />
-        <label className="text-center">Date</label>
-        <input className="w-25 mx-auto"
-          {...register("date", {
-            required: true,
-            maxLength: 20
-          })}
-        />
-        <label className="text-center">Client Name</label>
-        <input className="w-25 mx-auto"
-          {...register("ClientName", {
-            required: true,
-            maxLength: 20,
-            pattern: /^[A-Za-z]+$/i,
-          })}
-        />
-        {errors?.ClientName?.type === "required" && (
-          <p class="text-center">This field is required</p>
-        )}
-        {errors?.ClientName?.type === "maxLength" && (
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <label className="text-center">Transfer Date</label>
+              <input
+                className="w-50 mx-auto"
+                type="date"
+                {...register("date", {
+                  required: true,
+                  maxLength: 20,
+                })}
+              />
+            </div>
+            <div class="col-sm">
+              <label className="text-center">Due Date</label>
+              <input
+                className="w-50 mx-auto"
+                type="date"
+                {...register("date", {
+                  required: true,
+                  maxLength: 20,
+                })}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <label className="text-center">Client Name</label>
+              <input
+                className="w-50 mx-auto"
+                {...register("ClientName", {
+                  required: true,
+                  maxLength: 20,
+                  // pattern: /^[A-Za-z]+$/i,
+                })}
+              />
+            </div>
+            <div class="col-sm">
+              <label className="text-center">Email</label>
+              <input
+                className="w-50 mx-auto"
+                {...register("invoiceNo", {
+                  required: true,
+                  maxLength: 20,
+                  // pattern: /^[A-Za-z]+$/i,
+                })}
+              />
+            </div>
+            <div class="col-sm">
+              <label className="text-center">Address</label>
+              <input className="w-50 mx-auto" {...register("address", {})} />
+            </div>
+            <div class="col-sm">
+              <label className="text-center">Phone</label>
+              <input
+                className="w-50 mx-auto"
+                type="number"
+                {...register("phone", {})}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* {errors?.ClientName?.type === "maxLength" && (
           <p>First name cannot exceed 20 characters</p>
-        )}
-        {errors?.ClientName?.type === "pattern" && (
+        )} */}
+        {/* {errors?.ClientName?.type === "pattern" && (
           <p>Alphabetical characters only</p>
-        )}
-        <label className="text-center">Address</label>
-        <input className="w-25 mx-auto" {...register("address", { pattern: /^[A-Za-z]+$/i })} />
-        {errors?.Description?.type === "pattern" && (
+        )} */}
+
+        {/* {errors?.Description?.type === "pattern" && (
           <p>Alphabetical characters only</p>
-        )}
-        <label className="text-center">Phone</label>
-        <input className="w-25 mx-auto" {...register("phone", { max: 11 })} />
+        )} */}
 
         {/* table starts */}
-        <ReactBootstrap.Container>
+        <ReactBootstrap.Container className="mt-5">
           <h3>Table Input</h3>
           <ReactBootstrap.Row className="justify-content-md-center">
             {inputList.map((x, i) => {

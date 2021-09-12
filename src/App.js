@@ -14,8 +14,8 @@ function App  () {
   
     return (
     <div>
-       
-     {/* <Froms></Froms> */}
+       {flag?
+     <Froms></Froms>:
       <Document>
         <Page size="A4">
           <Fragment>
@@ -28,7 +28,7 @@ function App  () {
           </Fragment>
         </Page>
       </Document>
-       {/* }  */}
+        }  
       </div>
     );
   }

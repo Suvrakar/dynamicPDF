@@ -37,9 +37,8 @@ async function createGroups(arr, numGroups) {
     let num= (Math.ceil((arr.length-14)/20))+1
     console.log("num2232131",num,);
     return new Array(2).fill("").map((_, i) => {
-      if (i == 0) return arr.slice(i, (i + 1) * 14);
+      if (i === 0) return arr.slice(i, (i + 1) * 14);
       else return arr.slice(14+((i-1)*20), 14+((i)*20)); 
-      // else return arr.slice(i * 13, 40); 
 
     });
   }
@@ -64,10 +63,10 @@ const Invoice = ({ invoice }) => {
         <InvoiceNo invoice={invoice} />
         <BillTo invoice={invoice} />
         {tables.map((x, idx) => {
-          if (idx == 0) {
+          if (idx === 0) {
             return <InvoiceItemsTable invoice={x} flag={false} />;
           }
-          if (idx == tables.length - 1 && idx) {
+          if (idx === tables.length - 1 && idx) {
             return (
               <div style={styles.header}>
                 <InvoiceItemsTable invoice={x} flag={true} />
@@ -82,13 +81,6 @@ const Invoice = ({ invoice }) => {
         })}
 
         <InvoiceThankYouMsg />
-        {/* <Text
-          style={styles.pageNumber}
-          render={({ pageNumber, totalPages }) =>
-            `${pageNumber} / ${totalPages}`
-          }
-          fixed
-        /> */}
       </Page>
     </Document>
   );
