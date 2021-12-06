@@ -7,7 +7,7 @@ https://invoicetopdf.surge.sh/
 ##Description:
 This is a react app that can take input from a form and convert it into PDF. The UI is under construction.
 
-###Bug
+###Bug: 
 The form can only take only one product description. If another product is added it does not give any PDF. I am working to fix it.
 
 
